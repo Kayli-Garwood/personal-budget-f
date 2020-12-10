@@ -107,9 +107,7 @@ class DashboardPage extends Component {
             <input type="submit" value="Submit!" />
           </div>
         </form>
-        <canvas id="myChart" width="1400" height="700">
         <Charts chartData={this.state.data} />
-        </canvas>
       </div>
     );
   }
