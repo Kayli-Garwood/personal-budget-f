@@ -9,8 +9,8 @@ function Logout() {
   window.location.href = "/login";
 
   return (
-    <div className="logout">
-      <Button onClick={Logout}>LogOut</Button>
+    <div>
+
     </div>
   );
 }
