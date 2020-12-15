@@ -19,8 +19,8 @@ class DashboardPage extends Component {
 
   async componentDidMount() {
     let token = localStorage.getItem("jwt");
-    console.log("http://localhost:4000/budget/"+localStorage.getItem("userId"))
-    const res = await axios.get("http://localhost:4000/budget/"+localStorage.getItem("userId"), {
+    console.log("https://personal-budget-f-hgo3w.ondigitalocean.app/budget/"+localStorage.getItem("userId"))
+    const res = await axios.get("https://personal-budget-f-hgo3w.ondigitalocean.app/budget/"+localStorage.getItem("userId"), {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -54,7 +54,7 @@ class DashboardPage extends Component {
     let color =
       "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0");
     axios
-      .post("http://localhost:4000/addBudget", {
+      .post("https://personal-budget-f-hgo3w.ondigitalocean.app/addBudget", {
         title: this.state.title,
         value: this.state.value,
         color: color,
@@ -84,7 +84,10 @@ class DashboardPage extends Component {
   render() {
     return (
       <div>
+        <h1>Make a chart for your budget here!</h1>
+        <h2>After submitting, refresh the page to see your personal budget charts!</h2>
         <form onSubmit={this.handleSubmit}>
+          <div className="budget">
           <div className="title">
             <label htmlFor="title">Enter budget name: </label>
             <input
@@ -105,6 +108,7 @@ class DashboardPage extends Component {
 
           <div className="submit">
             <input type="submit" value="Submit!" />
+          </div>
           </div>
         </form>
         <Charts chartData={this.state.data} />
